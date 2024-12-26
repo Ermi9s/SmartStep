@@ -58,13 +58,8 @@ func (mu *Main_Usecase) RegisterDevice(device domain.Device) error {
 }
 
 func (mu *Main_Usecase) UpdateStatus(device domain.Device, status string) error {
-	filter := bson.D{{"_id", device.ID}}
-
-	update := bson.D{
-		{"$set", bson.D{
-			{"status", status},
-		}},
-	}
+	filter := bson.D{{Key : "_id", Value:  device.ID}}
+	update := bson.D{{Key : "$set", Value: bson.D{{Key : "status", Value: status},}},}
 
 	_, err := mu.Collection.UpdateOne(context.TODO(), filter, update)
 	if err != nil {
