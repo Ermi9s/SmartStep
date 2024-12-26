@@ -11,7 +11,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func main(){
+func main() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Panic("Failed to load .env" , err.Error())

@@ -10,6 +10,7 @@ func SetupRoutes(router *gin.Engine, mainController *controller.Main_Controller)
 	api := router.Group("/api")
 	{
 		api.GET("/info", mainController.GetAllInfo)   
-		api.POST("/register", mainController.RegisterDevice) 
+		api.POST("/register", mainController.RegisterDevice)
+		api.PUT("/update", mainController.UpdateStatus) 
 	}
 }
