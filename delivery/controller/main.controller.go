@@ -43,7 +43,7 @@ func (mc *Main_Controller)RegisterDevice(c *gin.Context) {
 
 func (mc *Main_Controller) UpdateStatus(c *gin.Context) {
 	var requestData struct {
-		Name     string `json:"id"`
+		Name     string `json:"name"`
 		Status string `json:"status"`
 	}
 
