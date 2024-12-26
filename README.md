@@ -12,4 +12,9 @@ The **SmartStep Backend** is a Go-based system designed to manage and support Sm
 
 - **Backend**: Go (Golang)  
 - **Framework**: Gin  
-- **Database**: MongoDB  
+- **Database**: MongoDB
+
+ ### Prerequisites  
+
+- Install [Go](https://go.dev/)  
+- Install [MongoDB](https://www.mongodb.com/)
