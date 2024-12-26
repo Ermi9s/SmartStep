@@ -33,7 +33,10 @@ func (mu *Main_Usecase)GetAllInfo()([]domain.LocationData , error) {
 		if err := cursor.Decode(&device); err != nil {
 			return nil, err
 		}
-		mapping[device.Location]++
+
+		if device.Status == "active" {
+			mapping[device.Location]++
+		}
 	}
 
 	for key,val := range mapping {
