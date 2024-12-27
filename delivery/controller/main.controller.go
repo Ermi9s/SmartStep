@@ -42,9 +42,9 @@ func (mc *Main_Controller)RegisterDevice(c *gin.Context) {
 }
 
 func (mc *Main_Controller) UpdateStatus(c *gin.Context) {
-	name := c.Param("name")
-	status := c.Param("status")
-	
+	name := c.Query("name")
+	status := c.Query("status")
+
 	err := mc.Usecase.UpdateStatus(name, status)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
