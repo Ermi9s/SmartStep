@@ -42,22 +42,10 @@ func (mc *Main_Controller)RegisterDevice(c *gin.Context) {
 }
 
 func (mc *Main_Controller) UpdateStatus(c *gin.Context) {
-	var requestData struct {
-		Name     string `json:"name"`
-		Status string `json:"status"`
-	}
-
-	if err := c.ShouldBindJSON(&requestData); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request data"})
-		return
-	}
-
-	device := domain.Device{
-		Name:     requestData.Name,
-		Status: requestData.Status,
-	}
-
-	err := mc.Usecase.UpdateStatus(device, requestData.Status)
+	name := c.Param("name")
+	status := c.Param("status")
+	
+	err := mc.Usecase.UpdateStatus(name, status)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

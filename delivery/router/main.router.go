@@ -11,6 +11,6 @@ func SetupRoutes(router *gin.Engine, mainController *controller.Main_Controller)
 	{
 		api.GET("/info", mainController.GetAllInfo)   
 		api.POST("/register", mainController.RegisterDevice)
-		api.PUT("/update", mainController.UpdateStatus) 
+		api.GET("/update/:name/:status", mainController.UpdateStatus) 
 	}
 }

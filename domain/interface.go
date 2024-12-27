@@ -10,6 +10,6 @@ type Main_Controller_Interface interface {
 
 type Main_Usecase_Interface interface {
 	GetAllInfo() ([]LocationData, error)
-	UpdateStatus(Device , string) error
+	UpdateStatus(string , string) error
 	RegisterDevice(Device) error
 }
